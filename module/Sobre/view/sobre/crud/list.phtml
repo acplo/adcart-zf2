@@ -1,0 +1,60 @@
+<div class="row">
+    <div class=" col-lg-1"></div>
+    <div class=" col-lg-10">
+	<div class="panel">
+	    <div class="panel-heading">
+		<div class="panel-title">
+		    <h3><i class="glyphicon glyphicon-list"></i> <?php echo 'sobre'; ?></h3>
+		</div>
+	    </div>
+	    <div class="panel-body">
+
+
+		<table id="list" class="table table-hover table-striped">
+		    <thead>
+			<tr>
+			    <th class="col-xs-1">Id</th>
+			    <th class="col-xs-3">Nome</th>
+			    <th class="col-xs-4">Plano</th>
+			    <th class="col-xs-1">Foto</th>
+			    <th class="col-xs-1"><a href="<?php echo $this->acploUrl()->from('sobre/add', [], true) ?>" class="btn btn-sm btn-success pull-right"><?= $this->acploIcon('glyphicon-plus') ?></a></th>
+			</tr>
+		    </thead>
+		    <tbody>
+			<?php foreach ($this->paginator as $entity): ?>
+    			<tr class="linha">
+    			    <td><?= $entity->getId() ?></td>
+    			    <td><?= $entity->getTitle() ?></td>
+    			    <td><?php
+//			    print_r($entity->getPlano());
+				?></td>
+    			    <td><?php
+//			    print_r($entity->getAvatar());
+				    ?></td>
+    			    <td class="text-right">
+    				<a href="<?php echo $this->acploUrl()->from('sobre/edit', ['id' => $entity->getId()], true) ?>" class="btn btn-xs btn-warning"><?= $this->acploIcon('glyphicon-edit') ?></a>
+    				<a href="<?php echo $this->acploUrl()->from('sobre/delete', ['id' => $entity->getId()], true) ?>" class="btn btn-xs btn-danger"><?= $this->acploIcon('glyphicon-trash') ?></a>
+    			    </td>
+    			</tr>
+			<?php endforeach; ?>
+		    </tbody>
+		</table>
+
+		<?php if ($this->paginator->count() > 1): ?>
+    		<div class="row">
+    		    <div class="col-xs-12 text-center"><?= $this->acploPaginationControl($this->paginator, 'Sliding', null, ['query' => $this->query]); ?></div>
+    		</div>
+		<?php endif ?>
+
+		<div class="panel-footer">
+		    <?php if ($this->paginator->count() > 1): ?>
+    		    <div class="row">
+    			<div class="col-xs-12 text-center"><?= $this->acploPaginationControl($this->paginator, 'Sliding', null, ['query' => $this->query]); ?></div>
+    		    </div>
+		    <?php endif ?>
+		</div>
+	    </div>
+	</div>
+    </div>
+    <div class=" col-lg-1"></div>
+</div>

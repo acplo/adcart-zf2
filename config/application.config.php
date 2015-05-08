@@ -1,0 +1,33 @@
+<?php
+/**
+ * Configuration file changed by AcploBase
+ * The previous configuration file is stored in application.config.old
+ */
+return array(
+    'modules' => array(
+        'DoctrineModule',
+        'DoctrineORMModule',
+        'ZfcBase',
+        'ZfcUser',
+        'ZfcRbac',
+        'AcploBase',
+        'AcploUi',
+        'AcploLog',
+        'AcploCart',
+        'AcploCartDoctrineORM',
+        'Application',
+        'Cart',
+        'Sobre',
+        'Produto',
+        'Cliente',
+    ),
+    'module_listener_options' => array(
+        'module_paths' => array(
+            './module',
+            './vendor',
+        ),
+        'config_glob_paths' => array(
+            'config/autoload/{,*.}{global,local}.php',
+        ),
+    ),
+);

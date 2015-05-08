@@ -1,0 +1,48 @@
+
+<div class="row">
+    <div class=" col-lg-1"></div>
+    <div class=" col-lg-10">
+	<div class="panel">
+	    <div class="panel-heading">
+		<div class="panel-title">
+		    <h3><i class="glyphicon glyphicon-plus"></i> <?php echo 'cliente'; ?></h3>
+		</div>
+	    </div>
+	    <div class="panel-body">
+
+		<h1>Add a new Post</h1>
+		<?php
+		$form->setAttribute('enctype','multipart/form-data');
+		$form->setAttribute('action', $this->url('cliente/add'))
+			->prepare();
+		echo $this->form()->openTag($form);
+		$postFieldset = $form->get('cliente');
+
+		echo $this->formHidden($postFieldset->get('id'));
+		?>
+
+		<div class="form-group">
+		    <div class="col-lg-12">
+			<?php echo $this->formRow($postFieldset->get('nome')); ?>
+		    </div>
+		</div>
+
+		<?php echo $this->formRow($postFieldset->get('plano')); ?>
+
+		<?php echo $this->formRow($postFieldset->get('imagem')); ?>
+
+		<?php echo $this->formInput($postFieldset->get('submit')); ?>
+
+		<?php echo $this->form()->closeTag($form);
+		?>
+
+
+		<div class = "panel-footer">
+
+		</div>
+	    </div>
+	</div>
+    </div>
+    <div class = " col-lg-1"></div>
+</div>
+
